@@ -5,10 +5,11 @@ import matplotlib.pyplot as plt
 from sklearn.datasets import make_circles
 
 ##Showing data
-data = pd.read_csv("binary_classification_data.csv")
-#X, Y = make_circles(1000, factor=.5, noise=.05) #Testing with circles 
-X = np.array(data[["X1", "X2"]])
-Y = np.array(data["type"])
+# data = pd.read_csv("Datasets/binary_classification_data.csv")
+# data = pd.read_csv("Datasets/data_training_logistic.csv")
+X, Y = make_circles(1000, factor=.5, noise=.05) #Testing with circles 
+# X = np.array(data[["X1", "X2"]])
+# Y = np.array(data["type"])
 
 topology = [2,4,8,1]
 model = NeuralNetwork.NeuralNetwork(topology)
@@ -16,6 +17,7 @@ model = NeuralNetwork.NeuralNetwork(topology)
 Y_ = Y
 Y = Y.reshape(-1,1)
 model.fit(X,Y, epochs= 50000)
+
 Y_pred = model(X)
 
 for i in range(len(X)):

@@ -92,6 +92,7 @@ def binary_cross_entropy(Y, Y_pred):
 def binary_cross_entropy_der(Y,Y_pred):
     #This is the derivative
     # return -np.mean(Y/Y_pred - (1-Y)/(1-Y_pred))
+    # return (Y_pred - Y) / (Y_pred * (1 - Y_pred))
     return Y_pred-Y #This is a simplified version that my research find useful
 
     
